@@ -8,18 +8,18 @@ using namespace std;
 
 int main()
 {
+    string ZnazwaPliku, OnazwaPliku;
+    cout << "Podaj nazwe pliku do oczytu: "; cin >> OnazwaPliku;
+    cout << "Podaj nazwe pliku do zapisu: "; cin >> ZnazwaPliku;
     SygnalLoader sl;
     AnalizatorSygnalu as;
-    SygnalProbkowany s;
-    Probka p = Probka(10,20);
-    s.dodajProbke(p);
-    Probka p2 = Probka(20,10);
-    s.dodajProbke2(p2);
-    cout << "Ilosc Probek: "; << s.iloscProbek() << endl;
+    SygnalProbkowany s = sl.wczytajSygnalProbkowany (OnazwaPliku);
+    cout << "Ilosc Probek: " << s.iloscProbek() << endl;
     cout << "Maximum: " << as.maksimum(s) << endl;
     cout << "Minimum: " << as.minimum(s) << endl;
     cout << "Srednia: " << as.srednia(s) << endl;
     cout << "Dlugosc: " << as.dlugosc(s) << endl;
     cout << "Calka: "   << as.calka(s) << endl;
-
+    sl. zapiszSygnalProbkowany (s, ZnazwaPliku);
+    return 0;
 }
